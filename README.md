@@ -7,7 +7,7 @@ Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `a
 # Instalación
 
 #### Prerequisitos
-- [Python 2 o 3](https://www.python.org/)
+- [Python 3](https://www.python.org/)
 - [pip o pip3](https://www.pypi.org/)
 #### Instalando PyEPH
 
@@ -36,8 +36,9 @@ Algunos ejemplos:
 import pyeph
 
 eph = pyeph.get(data="eph", year=2021, period=2, base_type='individual') # microdatos
-canastas = pyeph.get(data="canastas") # canasta basica total y alimentaria 
-adequi = pyeph.get(data="adulto-equivalente") # adulto equivalente 
+canasta = pyeph.get(data="canastas") # canasta basica total y alimentaria 
+adequi = pyeph.get(data="adulto-equivalente") # adulto equivalente
+pobreza = pyeph.Poverty(eph,canasta)
 ```
 
 #### Parámetros
