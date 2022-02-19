@@ -85,5 +85,3 @@ Esta librería se encuentra en estado permanente de desarrollo.
 - Agradecimientos para les pi de https://github.com/holatam/eph (docs: https://cran.r-project.org/web/packages/eph/eph.pdf)
 - Humai
 - Devs
-
-Falta agregar MIT license
