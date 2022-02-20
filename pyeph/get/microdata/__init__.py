@@ -1,4 +1,7 @@
+import pandas as pd
+
 from pyeph.decorators import translate_params
+from pyeph.tools.labels import EPHLabels
 
 from ..getter import Getter
 from .validator import MicroDataValidator
@@ -55,3 +58,7 @@ class MicroData(Getter, MicroDataValidator):
 			self.freq[0].upper(),
 			self.period
 			)
+
+	def get_df(self, inform_user=True):
+		pd.DataFrame.help = EPHLabels.var_label
+		return super().get_df(inform_user)

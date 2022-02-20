@@ -8,3 +8,7 @@ from pyeph.calc.api import (
     LaborMarket, MercadoLaboral,
     Calculator, Calculadora
 )
+
+from pyeph.tools.api import (
+    eph_labels
+)
