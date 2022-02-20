@@ -6,10 +6,10 @@ Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `a
 
 # Instalación
 
-#### Prerequisitos
+### Prerequisitos
 - [Python 3](https://www.python.org/)
 - [pip o pip3](https://www.pypi.org/)
-#### Instalando PyEPH
+### Instalando PyEPH
 
 - Abra una terminal del sistema y escriba 
 
@@ -17,57 +17,14 @@ Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `a
 $ pip install pyeph
 ```
 
-#### Puesta en marcha
+### Puesta en marcha
 
 Esta librería puede ser utilizada en el entorno de su preferencia. Puede utilizarse en una `jupyter-notebook` o en un archivo simple `.py`
 
-[...]
 
 # Uso básico
 
-## Descargando bases de datos
-
-> pyeph.get() o pyeph.obtener()
-
-Todas las bases que se necesite descargar para su posterior tratamiento debe realizarse desde la funcion `pyeph.get()`. Esta función instancia la obtención de los datos solicitados.
-Algunos ejemplos:
-
-```python
-import pyeph
-
-eph = pyeph.get(data="eph", year=2021, period=2, base_type='individual') # microdatos
-canasta = pyeph.get(data="canastas") # canasta basica total y alimentaria 
-adequi = pyeph.get(data="adulto-equivalente") # adulto equivalente
-pobreza = pyeph.Poverty(eph,canasta)
-```
-
-#### Parámetros
-
-| Parametro | Tipo de dato | Descripción |
-| --------- | ------------ | ----------- |
-| data | str | Tipo de base de dato a obtener. Puede ser 'eph', 'canastas', 'adulto-equivalente' |
-| year | int | (Solo para las EPH) El año que se desea solicitar |
-| period | int | (Solo para las EPH) El periodo que se desea solicitar |
-| freq | str | (Solo para las EPH) Tipo de periodizacion "trimestre" u "onda". Default: "trimestre" |
-| base_type | str | (Solo para las EPH) Tipo de EPH que se desea obtener. Puede ser 'individual' u 'hogar' |
-
-
-
----
-## Ejecutando calculos
-
-> Todos los calculos precisan de una eph en formato pd.DataFrame, puede descargarla con pyeph.get() o ser una personalizada
-
-
-### Pobreza
-
-> pyeph.Poverty() o pyeph.Pobreza()
-
-### Desempleo
-
-> pyeph.Unemployment() o pyeph.Desempleo()
-
-## Documentación
+# Documentación
 
 [Link del sitio de la documentación](https://github.com/) (Aún en desarrollo)
 
