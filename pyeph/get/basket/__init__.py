@@ -57,7 +57,7 @@ class Basket(Getter):
 					self.filename = f
 					df_f =  pd.read_csv(self.get_file(), low_memory=False)
 					df_f['tipo_canasta'] = f[:3].upper()
-					df_inicial = df_inicial.append(df_f)
+					df_inicial = pd.concat([df_inicial, df_f])
 				query = True
 			except:
 				year_month = year_month - relativedelta(months=1)
