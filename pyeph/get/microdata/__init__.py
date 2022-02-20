@@ -60,5 +60,5 @@ class MicroData(Getter, MicroDataValidator):
 			)
 
 	def get_df(self, inform_user=True):
-		pd.DataFrame.help = EPHLabels.var_label
+		pd.DataFrame.help = EPHLabels.vars_labels
 		return super().get_df(inform_user)

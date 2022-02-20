@@ -1,4 +1,6 @@
 from .labels import (
-    eph_labels,
-    etiquetas_eph
+    vars_labels,
+    etiquetas_vars,
+    map_labels,
+    etiquetar
 )

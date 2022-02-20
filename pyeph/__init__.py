@@ -1,14 +1,5 @@
-from pyeph.get.api import (
-    get,
-    obtener
-)
+from pyeph.get.api import *
 
-from pyeph.calc.api import (
-    Poverty, Pobreza,
-    LaborMarket, MercadoLaboral,
-    Calculator, Calculadora
-)
+from pyeph.calc.api import *
 
-from pyeph.tools.api import (
-    eph_labels
-)
+from pyeph.tools.api import *
