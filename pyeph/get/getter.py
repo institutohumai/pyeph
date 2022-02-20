@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import sys
 import zipfile
@@ -10,7 +9,7 @@ from pyeph.errors import NonExistentDBError
 MODULE_PATH = os.getcwd()
 
 
-class Getter(object):
+class Getter:
     """
 	Obtencion de archivos para su posterior tratamiento 
 	Utiliza los atributos de cada tipo de obtencion declarado en el archivo __init__.py
@@ -29,9 +28,6 @@ class Getter(object):
     BASE_GITHUB_URL = "https://github.com/CocinaDeSoftware/pyeph-data/raw/master/"
     URL_INDEC = "https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph"
     DEFAULT_DIR = "pyeph/.db"
-
-    def __init__(self, *args, **kwargs):
-        pass
 
     @property
     def download_base_folder(self):

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import pandas as pd
 
 from pyeph.decorators import (
@@ -48,7 +47,10 @@ class Poverty(Calculator):
     basket = BasketType() # Salva de recibir algo != a pandas.DataFrame
 
     @translate_params({'canasta': 'basket'})
-    def __init__(self, eph, basket=None):
+    def __init__(self, 
+        eph: pd.DataFrame, 
+        basket: pd.DataFrame=None
+    ):
         self.eph = eph
         # En caso de que el usuario no especifique una canasta, se descarga la del repo.
         if basket is None:

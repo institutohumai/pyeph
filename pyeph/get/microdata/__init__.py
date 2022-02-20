@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from pyeph.decorators import translate_params
 
 from ..getter import Getter
@@ -39,17 +38,15 @@ class MicroData(Getter, MicroDataValidator):
 		'tipo_base': 'base_type'
 	})
 	def __init__(self,
-			year,
-			period,
-			freq="trimestre",
-			base_type="individual",
-			*args, **kwargs
+			year: int,
+			period: int,
+			freq: str = "trimestre",
+			base_type: str = "individual",
 		):
 		self.year = year
 		self.period = period
 		self.freq = freq
 		self.base_type = self.folder = base_type
-		super(MicroData, self).__init__(*args, **kwargs)
 
 	@property
 	def filename(self): return "base_{}_{}{}{}.zip".format(

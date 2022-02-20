@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 import sys
 
 from pyeph.errors import *
 
 from .types import Frequency
 
-class MicroDataValidator(object):
+class MicroDataValidator:
 	"""
 		Validacion de datos para la consulta de las bases
 	"""

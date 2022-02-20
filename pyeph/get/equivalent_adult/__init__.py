@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from ..getter import Getter
 
 class EquivalentAdult(Getter):

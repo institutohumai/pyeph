@@ -4,7 +4,7 @@ from .microdata import MicroData
 from .basket import Basket
 from .equivalent_adult import EquivalentAdult
 
-def get(data,*args, **kwargs):
+def get(data: str, *args, **kwargs):
 	handles = {
 		'microdata': MicroData,
 		'eph': MicroData,

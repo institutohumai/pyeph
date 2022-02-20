@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 import pandas as pd
 
-class EPHType(object):
+class EPHType:
 
 	def __get__(self, obj, *args):
 		return self.value
@@ -11,7 +10,7 @@ class EPHType(object):
 			raise ValueError("eph debe ser un pd.DataFrame")
 		self.value = value
 
-class BasketType(object):
+class BasketType:
 
 	def __get__(self, obj, *args):
 		return self.value

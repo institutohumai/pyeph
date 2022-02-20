@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import pandas as pd
 
 from pyeph.decorators import (
@@ -22,7 +21,9 @@ class LaborMarket(Calculator):
 	VAR_EPH_PONDERADOR = 'PONDERA'
 	VAR_EPH_ESTADO = 'ESTADO'
 
-	def __init__(self, eph):
+	def __init__(self, 
+		eph: pd.DataFrame
+	):
 		self.eph = eph
 		
 	@classmethod

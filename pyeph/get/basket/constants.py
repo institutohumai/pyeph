@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 region_map = {
     "cuyo": 42,
     "gran_buenos_aires":1,

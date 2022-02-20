@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 from pyeph.get.basket import Basket
 
 from .types import EPHType
 
-class Calculator(object):
+class Calculator:
 	"""
 		Metodos genericos para la utilizacion en mas de un calculo
 	"""

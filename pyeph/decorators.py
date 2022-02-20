@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 def translate_params(params={}):
     def function_in_question(fn):
         def wrapper(*args, **kwargs):

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from pyeph.get.api import (
     get,
     obtener
