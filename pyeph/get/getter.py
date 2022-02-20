@@ -77,7 +77,7 @@ class Getter:
         """
 			Retorna el DataFrame
 		"""
-        file = pd.read_csv(self.get_file(), low_memory=False)
+        df = pd.read_csv(self.get_file(), low_memory=False)
         if inform_user:
             sys.stdout.write("Obtenido con exito: {} \n".format(self.filename))
-        return file
+        return df
