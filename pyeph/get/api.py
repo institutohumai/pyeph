@@ -1,4 +1,4 @@
-from .gateway import (
+from .handler import (
     get, 
     obtener
 )
