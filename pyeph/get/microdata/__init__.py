@@ -50,6 +50,7 @@ class MicroData(Getter, MicroDataValidator):
 		self.period = period
 		self.freq = freq
 		self.base_type = self.folder = base_type
+		super(MicroData, self).__init__()
 
 	@property
 	def filename(self): return "base_{}_{}{}{}.zip".format(
