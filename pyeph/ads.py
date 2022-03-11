@@ -11,11 +11,10 @@ personal de la EPH."""
 INDEC_STATS_EMERGENCY = """En el marco de la emergencia estadistica el INDEC no publico la base solicitada. 
 Mas informacion en: https://www.indec.gob.ar/ftp/cuadros/sociedad/anexo_informe_eph_23_08_16.pdf"""
 
-INDEC_2007_2015 = '''INDEC advierte:
+INDEC_2007_2015 = """INDEC advierte:
 Advertencia sobre el uso de series estadisticas. Se advierte que las series estadisticas publicadas con
 posterioridad a enero del 2007 y hasta diciembre 2015 deben ser consideradas con reservas,
 excepto las que ya hayan sido revisadas en 2016 y su difusion lo consigne expresamente.
 El INDEC, en el marco de las atribuciones conferidas por los decretos 181/15 y 55/16, dispuso las investigaciones
 requeridas para establecer la regularidad de procedimientos de obtencion de datos, su procesamiento, elaboracion de indicadores y difusion
-Mas informacion en: https://www.indec.gob.ar/ftp/cuadros/sociedad/anexo_informe_eph_23_08_16.pdf
-'''
+Mas informacion en: https://www.indec.gob.ar/ftp/cuadros/sociedad/anexo_informe_eph_23_08_16.pdf"""
