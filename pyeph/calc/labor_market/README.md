@@ -1,1 +1,0 @@
-# Calculo de Tasa de Desempleo y Empleo

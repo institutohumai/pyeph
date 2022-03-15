@@ -1,1 +1,0 @@
-# Cálculo template
