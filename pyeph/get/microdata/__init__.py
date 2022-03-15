@@ -1,6 +1,6 @@
 import pandas as pd
 
-from pyeph.decorators import translate_params
+from pyeph.tools.decorators import translate_params
 from pyeph.tools.labels import vars_labels
 
 from ..getter import Getter

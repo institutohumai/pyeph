@@ -1,6 +1,6 @@
 import pandas as pd
 
-from pyeph.decorators import (
+from pyeph.tools.decorators import (
 	translate_params,
 	validate_group_by,
 	validate_div_by
