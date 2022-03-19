@@ -4,3 +4,8 @@ from .labels import (
     map_labels,
     etiquetar
 )
+
+from .merge import (
+    merge, 
+    aparear
+)
