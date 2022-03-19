@@ -3,6 +3,7 @@ from pyeph.errors import NonExistentDBError
 from .microdata import MicroData
 from .basket import Basket
 from .equivalent_adult import EquivalentAdult
+from .mautic import Mautic
 
 def get(data: str, *args, **kwargs):
 	handles = {
@@ -12,6 +13,7 @@ def get(data: str, *args, **kwargs):
 		'canastas': Basket,
 		'adulto-equivalente': EquivalentAdult,
 		'equivalent-adult': EquivalentAdult,
+		'mautic': Mautic
 	}
 
 	try:
