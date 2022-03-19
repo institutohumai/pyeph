@@ -58,7 +58,7 @@ class Getter:
         except:
             raise NonExistentDBError()
 
-    def get_file(self):
+    def check_if_exists(self):
         # Se fija si existe en el directorio. Caso contrario lo descarga
         base_folder = self.download_base_folder
         if not os.path.exists(base_folder):
@@ -69,6 +69,11 @@ class Getter:
         zip_file = self.download_destination
         if not os.path.exists(zip_file):
             self.download()
+        return zip_file
+
+    def get_file(self):
+        # Aquí hay que agregar un progress bar
+        zip_file = self.check_if_exists()
         zip_file = zipfile.ZipFile(zip_file, 'r')
         csv_file = zip_file.open(self.filename.replace('.zip', '.csv'), 'r')
         return csv_file
