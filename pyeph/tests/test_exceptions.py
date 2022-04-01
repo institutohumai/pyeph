@@ -28,13 +28,29 @@ def test_year_freq(year, period, freq):
         (2016,1),
     ]
 )
-def test_existent_db(year, period):
+def test_emergency_non_existent_db(year, period):
     with pytest.raises(errors.NonExistentDBError) as excinfo:
         get('microdata', year, period)
     assert ads.INDEC_STATS_EMERGENCY == excinfo.value.args[0]
 
-
-def test_request_fruit():
+@pytest.mark.parametrize(
+    "data,kwargs", [
+        ('pepe-parrales', {"year": 2015, "period": 2, "freq": "trimestre"}),
+    ]
+)
+def test_request_fruit(data, kwargs):
     with pytest.raises(errors.NonExistentDBError) as excinfo:
-        get('pepe-parrales', 2015, 2, "trimestre")
+        get(data,**kwargs)
     assert "Debe seleccionar un tipo de base posible" in excinfo.value.args[0]
+
+
+@pytest.mark.parametrize(
+    "data,kwargs", [
+        ('mautic', {"year": 2010, "period": 4}),
+        ('mautic', {"year": 2018, "period": 3}),
+    ]
+)
+def test_value_error(data, kwargs):
+    with pytest.raises(ValueError):
+        get(data, **kwargs)
+

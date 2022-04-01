@@ -8,7 +8,7 @@ Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `a
 
 ### Prerequisitos
 - [Python 3](https://www.python.org/)
-- [pip o pip3](https://www.pypi.org/)
+- [pip3](https://www.pypi.org/)
 ### Instalando PyEPH
 
 - Abra una terminal del sistema y escriba 
