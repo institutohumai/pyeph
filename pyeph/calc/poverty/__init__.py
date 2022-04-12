@@ -25,7 +25,6 @@ class Poverty(Calculator):
     VAR_EPH_HOGAR = 'CODUSU'
     VAR_EPH_NRO_HOGAR = 'NRO_HOGAR'
     VAR_EPH_REGION = 'REGION'
-    VAR_EPH_PONDERADOR_INGRESO = 'PONDIH'
     VAR_EPH_ITF = 'ITF'
 
     VAR_CBT = 'CBT'
@@ -52,6 +51,15 @@ class Poverty(Calculator):
         basket: pd.DataFrame=None
     ):
         self.eph = eph
+        check_pond = [c for c in self.eph.columns if c == 'PONDIH']
+
+        if len(check_pond):
+            Poverty.VAR_EPH_PONDERADOR_INGRESO = 'PONDIH'
+
+        else:
+            Poverty.VAR_EPH_PONDERADOR_INGRESO = 'PONDERA'
+
+        
         # En caso de que el usuario no especifique una canasta, se descarga la del repo.
         if basket is None:
             self.basket = Basket().get_df().copy()
@@ -123,6 +131,7 @@ class Poverty(Calculator):
         df = population_rate.join(population_quantity)
         df = df.sort_index(ascending=False, axis=1)
         return df
+         
 
     def household(self):
         # Calculo de pobreza e indigencia (hogares)

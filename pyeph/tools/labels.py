@@ -43,6 +43,9 @@ def map_labels(df):
         df[i] = df[i].astype(str).str.strip()
         df[i] = df[i].map(dict_i)
 
+
+
+
     
     # Renombrar columnas con su etiqueta
     var_names = vars_labels()
