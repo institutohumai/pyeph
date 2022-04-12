@@ -34,7 +34,7 @@ class Mautic(Getter):
 	})
 	def __init__(self,
 			year: int,
-			period: int,
+			period: int = 4,
 			base_type: str = "individual"
 		):
 		self.year = year
