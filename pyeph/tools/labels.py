@@ -1,5 +1,7 @@
 import os
 import pandas as pd
+from pandas.api.types import is_numeric_dtype
+
 
 from .. import config
 
@@ -23,15 +25,16 @@ def map_labels(df):
     #Obtenemos las columnas relevantes para etiquetar
     df = df.reset_index()
     cols = [c for c in df.columns]
-
     # Obtenemos dataframe de labels
     labels = get_df()
     labels = labels[labels['DESCRIPCIÓN'].notna()]
     labels['DESCRIPCIÓN'] = labels['DESCRIPCIÓN'].astype(str)
-    labels = labels[labels['CAMPO'].isin(cols)]
-    
-    
+
+    labels = labels[labels['CAMPO'].isin(cols)]   
     variables = labels['CAMPO'].unique()
+
+
+    print(variables)
 
     for i in variables:            
         # Obtener la serie que mapea para cada variable
@@ -39,19 +42,18 @@ def map_labels(df):
         df_i[i] = df_i[i].str.strip()
         df_i = df_i.drop(columns = {'CAMPO', 'TIPO (longitud)', 'index'}).set_index(i).rename(columns = {f'DESCRIPCIÓN_{i}': i})
         dict_i = df_i.to_dict().get(i)
+        #print(df[i].dtype)   
 
+        if is_numeric_dtype(df[i]):
+            df[i] = df[i].astype(int).astype(str)
+        print(df[i].dtype)
         df[i] = df[i].astype(str).str.strip()
         df[i] = df[i].map(dict_i)
-
-
-
-
-    
+        
     # Renombrar columnas con su etiqueta
     var_names = vars_labels()
     var_names = var_names[var_names['CAMPO'].isin(cols)]
     var_names_dict = var_names.set_index('CAMPO').to_dict().get('DESCRIPCION')
-
     return df.rename(columns = var_names_dict)
 
 
