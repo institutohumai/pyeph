@@ -12,7 +12,8 @@ Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `a
 # Instalación
 
 Pueden probar nuestra notebook de ejemplo en Google Colab
-<a href="https://github.com/institutohumai/pyeph/blob/main/examples.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a>
+
+<a href="https://colab.research.google.com/github/institutohumai/pyeph/blob/main/examples.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a>
 <div align="center"> Recordá abrir en una nueva pestaña </div>
 
 ### Prerequisitos
