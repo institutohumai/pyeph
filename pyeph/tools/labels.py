@@ -29,27 +29,27 @@ def map_labels(df):
     labels = get_df()
     labels = labels[labels['DESCRIPCIÓN'].notna()]
     labels['DESCRIPCIÓN'] = labels['DESCRIPCIÓN'].astype(str)
-
-    labels = labels[labels['CAMPO'].isin(cols)]   
+    labels = labels[labels['CAMPO'].isin(cols)]
     variables = labels['CAMPO'].unique()
 
-
-    print(variables)
 
     for i in variables:            
         # Obtener la serie que mapea para cada variable
         df_i = labels[labels['CAMPO'] == i].rename(columns = {'CODIGO': f'{i}', 'DESCRIPCIÓN': f'DESCRIPCIÓN_{i}'}).reset_index()
+        
+        if i=='AGLOMERADO': #codigo en el excel le falta un 0 adelante para que sea comparable con el codigo de eph. se agrega el 0
+            df_i[i] = df_i[i].str.replace(r"\D(\d)$", r" 0\1")
+
         df_i[i] = df_i[i].str.strip()
         df_i = df_i.drop(columns = {'CAMPO', 'TIPO (longitud)', 'index'}).set_index(i).rename(columns = {f'DESCRIPCIÓN_{i}': i})
         dict_i = df_i.to_dict().get(i)
-        #print(df[i].dtype)   
 
         if is_numeric_dtype(df[i]):
             df[i] = df[i].astype(int).astype(str)
-        print(df[i].dtype)
         df[i] = df[i].astype(str).str.strip()
         df[i] = df[i].map(dict_i)
         
+
     # Renombrar columnas con su etiqueta
     var_names = vars_labels()
     var_names = var_names[var_names['CAMPO'].isin(cols)]
