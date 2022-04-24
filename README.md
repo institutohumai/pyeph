@@ -4,6 +4,7 @@ PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares para
 ![PyPI](https://img.shields.io/pypi/v/pyeph?color=orange&style=flat-square)
 ![PyPI - License](https://img.shields.io/pypi/l/pyeph?color=purple&style=flat-square)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyeph)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pyeph?style=flat-square)
 
 La librería Pyeph tiene como objetivo facilitar el procesamiento en Python de las [Encuesta Permanente de Hogares (eph)](https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos) publicadas por INDEC de forma periódica. Está pensada como un espacio donde se nuclean y centralizan los cálculos vinculados a las mismas para posteriormente ser utilizadas en investigaciones, artículos, publicaciones, etc.
 Es una librería que hace principal hincapié en la transparencia metodológica utilizando licencias de código abierto y que promueve la colaboración de las comunidades de cientístas de datos, sociales, investigadorxs, desarrolladorxs, periodistas y demás curiosxs.
@@ -67,12 +68,12 @@ adequi = pyeph.obtener(data="adulto-equivalente") # adulto equivalente
 # Cálculos de ejemplo de pobreza 
 pobreza = pyeph.Pobreza(eph, canastas)
 poblacion_pobre = pobreza.poblacion(agrupar_por='CH04') # Población pobre por sexo 
-etiquetado = pyeph.etiquetar(poblacion_pobre) # Etiquetado de las variables
+poblacion_pobre_etiquetado = pyeph.etiquetar(poblacion_pobre) # Etiquetado de las variables
 
 # Cálculos de Mercado Laboral
 mercado_laboral = pyeph.MercadoLaboral(eph)
 desempleo = mercado_laboral.desempleo(agrupar_por="REGION", div_por="PT") # Desempleo agrupado por region y dividiendo por Población Total
-etiquetada = pyeph.etiquetar(desempleo) # Etiquetado de las variables
+desempleo_etiquetado = pyeph.etiquetar(desempleo) # Etiquetado de las variables
 ```
 
 # Documentación
