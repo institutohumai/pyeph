@@ -3,7 +3,7 @@ PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares para
 
 ![PyPI](https://img.shields.io/pypi/v/pyeph?color=orange&style=flat-square)
 ![PyPI - License](https://img.shields.io/pypi/l/pyeph?color=purple&style=flat-square)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyeph)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyeph?style=flat-square)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pyeph?style=flat-square)
 
 La librería Pyeph tiene como objetivo facilitar el procesamiento en Python de las [Encuesta Permanente de Hogares (eph)](https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos) publicadas por INDEC de forma periódica. Está pensada como un espacio donde se nuclean y centralizan los cálculos vinculados a las mismas para posteriormente ser utilizadas en investigaciones, artículos, publicaciones, etc.
