@@ -91,7 +91,11 @@ Esta librería se encuentra en estado permanente de desarrollo.
 
 ## Agradecimientos
 
-Dejamos aquí un especial agradecimiento al equipo de desarrollo de la librería [EPH en R](https://holatam.github.io/eph/authors.html). Todo el amor para elles ❤️
+Dejamos aquí un especial agradecimiento:
+
+Al equipo de desarrollo de la librería [EPH en R](https://holatam.github.io/eph/authors.html). Todo el amor para elles ❤️
+
+Y a  [Rami Argañaraz](https://www.linkedin.com/in/ramiro-arga%C3%B1araz-57764a16b/) por armarnos el loguito 😻 
 
 ---
 ⌨️ con ❤️
