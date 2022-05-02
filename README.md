@@ -1,5 +1,4 @@
-PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares para Python
-===
+# PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares para Python <a><img src='assets/logo.png' align="right" height="250" /></a>
 
 ![PyPI](https://img.shields.io/pypi/v/pyeph?color=orange&style=flat-square)
 ![PyPI - License](https://img.shields.io/pypi/l/pyeph?color=purple&style=flat-square)
