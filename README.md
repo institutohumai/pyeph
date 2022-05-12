@@ -1,4 +1,4 @@
-# PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares para Python 
+# PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares en Python 
 <a><img src='assets/logo.png' align="right" height="250" /></a>
 
 ![PyPI](https://img.shields.io/pypi/v/pyeph?color=orange&style=flat-square)
