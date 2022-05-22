@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyeph"
-version = "v1.1.5"
+version = "v1.1.6"
 description = "PyEPH es una librería para el procesamiento de la Encuesta Permanente de Hogares (eph) en Python. Permite la descarga de archivos de EPH's y otros como la canasta basica y adulto equivalente , como asi también algunos calculos rápidos relacionados con las mismas"
 authors = ["Maria Carolina Trogliero, Mariano Valdez Anopa, Maria Gaska"]
 license = "MIT"
