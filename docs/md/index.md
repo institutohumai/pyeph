@@ -1,4 +1,4 @@
-# PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares en Python 
+# PyEPH - Procesamiento de Encuesta Permanente de Hogares de INDEC en Python 
 
 <a><img src='_static/logo.png' align="right" height="250" /></a>
 
