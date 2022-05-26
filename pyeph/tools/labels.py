@@ -12,7 +12,7 @@ def get_df():
     df = pd.read_excel(pathfile, sheet_name = 'BASE PERSONAS', skiprows=6, engine='openpyxl').dropna(axis=0, how='all')
     df = df.fillna(method='ffill')
     df['CAMPO'] = df['CAMPO'].str.strip()
-    df['DESCRIPCIÓN'] = df['DESCRIPCIÓN'].str.replace(r'([0-9]\.)', '=', regex=True)
+    #df['DESCRIPCIÓN'] = df['DESCRIPCIÓN'].str.replace(r'([0-9]\.)', '=', regex=True)
     df[['CODIGO', 'DESCRIPCIÓN']] = df['DESCRIPCIÓN'].str.split("=",expand=True,)
     return df
 
@@ -36,10 +36,6 @@ def map_labels(df):
     for i in variables:            
         # Obtener la serie que mapea para cada variable
         df_i = labels[labels['CAMPO'] == i].rename(columns = {'CODIGO': f'{i}', 'DESCRIPCIÓN': f'DESCRIPCIÓN_{i}'}).reset_index()
-        
-        if i=='AGLOMERADO': #codigo en el excel le falta un 0 adelante para que sea comparable con el codigo de eph. se agrega el 0
-            df_i[i] = df_i[i].str.replace(r"\D(\d)$", r" 0\1")
-
         df_i[i] = df_i[i].str.strip()
         df_i = df_i.drop(columns = {'CAMPO', 'TIPO (longitud)', 'index'}).set_index(i).rename(columns = {f'DESCRIPCIÓN_{i}': i})
         dict_i = df_i.to_dict().get(i)
