@@ -36,8 +36,6 @@ def get(data: str, *args, **kwargs):
 
 ------------------------------ENGLISH DOCSTRING-------------------------------------
 
-	Esta función permite obtener los resultados de la Encuesta Permanente de Hogares (EPH) 2016-act.
-
 	This function allows to get the results of "Encuesta Permanente de Hogares (EPH) 2016-act.",
 	permanent household survey, in Argentina provided by INDEC.
 
@@ -62,7 +60,7 @@ def get(data: str, *args, **kwargs):
 				period to request.
 
 	Returns:
-		pandas.DataFrame: Devuelve una estructura de datos columnar de pandas con los datos solicitados.
+		pandas.DataFrame: Returns a pandas data structure with the requested data. 
 	"""
 
 	
