@@ -25,7 +25,7 @@ class Getter:
 			dataframe del .csv solicitado
 	"""
 
-    BASE_GITHUB_URL = "https://github.com/CocinaDeSoftware/pyeph-data/raw/master/"
+    BASE_GITHUB_URL = "https://github.com/reflejar/pyeph-data/raw/master/"
     URL_INDEC = "https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph"
     DEFAULT_DIR = "pyeph/.db"
 
