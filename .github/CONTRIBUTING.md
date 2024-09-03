@@ -2,7 +2,7 @@
 
 Si deseas mejorar este proyecto o agregar nuevas funcionalidades, no dudés en abrir un "Issue" o enviar un "Pull Request". Las contribuciones son siempre bienvenidas.
 
-![Vista de pestañas](image.png)
+![Vista de pestañas](image.jpeg)
 
 - **💡 Issue**: Si queres reportar un error, sugerir una mejora o discutir una idea. Usalo para iniciar una conversación sobre cambios en el proyecto.
 
