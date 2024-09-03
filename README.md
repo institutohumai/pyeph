@@ -1,4 +1,5 @@
-# PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares en Python 
+# PyEPH - Libreria para el procesamiento de la Encuesta Permanente de Hogares en Python
+
 <a><img src='docs/_static/logo.png' align="right" height="250" /></a>
 
 ![PyPI](https://img.shields.io/pypi/v/pyeph?color=orange&)
@@ -14,12 +15,15 @@ Es una librería que hace principal hincapié en la transparencia metodológica 
 
 Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `adulto equivalente` , como asi también algunos calculos rápidos relacionados con las mismas
 
+> ## 🚀 Contribuciones
+>
+> ¡Las contribuciones son bienvenidas! Si estás interesado en mejorar el proyecto o agregar nuevas funcionalidades, por favor revisa nuestro [guía de contribución](.github/CONTRIBUTING.md) para obtener más información.
+
 ## Cómo citar la librería
 
 ```
 Carolina Trogliero, Mariano Valdez y Maria Frances Gaska (2022). PyEPH: Librería para la obtención y el procesamiento de la Encuesta Permanente de Hogares (EPH-INDEC). PyEPH version https://doi.org/10.5281/zenodo.6727908
 ```
-
 
 ## Instalación
 
@@ -30,11 +34,13 @@ Pueden probar nuestra notebook de ejemplo en Google Colab
 Recordá abrir en una nueva pestaña
 
 ### Prerequisitos
+
 - [Python 3](https://www.python.org/)
 - [pip](https://www.pypi.org/)
+
 ### Instalando PyEPH
 
-- Abra una terminal del sistema y escriba 
+- Abra una terminal del sistema y escriba
 
 ```bash
 $ pip install pyeph
@@ -54,9 +60,9 @@ eph = pyeph.get(data="eph", year=2021, period=2, base_type='individual') # EPH i
 basket = pyeph.get(data="canastas") # canasta basica total y alimentaria
 adequi = pyeph.get(data="adulto-equivalente") # adulto equivalente
 
-# Cálculos de ejemplo de pobreza 
+# Cálculos de ejemplo de pobreza
 poverty = pyeph.Poverty(eph, basket)
-population_poverty = poverty.population(group_by='CH04') # Población pobre por sexo 
+population_poverty = poverty.population(group_by='CH04') # Población pobre por sexo
 labeled_poverty = pyeph.map_labels(population_poverty) # Etiquetado de las variables
 
 # Cálculos de Mercado Laboral
@@ -75,9 +81,9 @@ eph = pyeph.obtener(data="eph", ano=2021, periodo=2, tipo_base='individual') # E
 canastas = pyeph.obtener(data="canastas") # canasta basica total y alimentaria
 adequi = pyeph.obtener(data="adulto-equivalente") # adulto equivalente
 
-# Cálculos de ejemplo de pobreza 
+# Cálculos de ejemplo de pobreza
 pobreza = pyeph.Pobreza(eph, canastas)
-poblacion_pobre = pobreza.poblacion(agrupar_por='CH04') # Población pobre por sexo 
+poblacion_pobre = pobreza.poblacion(agrupar_por='CH04') # Población pobre por sexo
 poblacion_pobre_etiquetado = pyeph.etiquetar(poblacion_pobre) # Etiquetado de las variables
 
 # Cálculos de Mercado Laboral
@@ -88,7 +94,7 @@ desempleo_etiquetado = pyeph.etiquetar(desempleo) # Etiquetado de las variables
 
 ## Documentación
 
-[Link del sitio de la documentación](https://pyeph.readthedocs.io/es/latest/) 
+[Link del sitio de la documentación](https://pyeph.readthedocs.io/es/latest/)
 
 ---
 
@@ -98,11 +104,10 @@ Esta librería se encuentra en estado permanente de desarrollo.
 
 > Cualquier colaboración es bienvenida
 
-
 ## Agradecimientos
 
-Dejamos aquí un especial agradecimiento al equipo de desarrollo de la librería [EPH en R](https://holatam.github.io/eph/authors.html). Todo el amor para elles ❤️ y a  [Rami Argañaraz](https://www.linkedin.com/in/ramiro-arga%C3%B1araz-57764a16b/) por armarnos el loguito 😻 
+Dejamos aquí un especial agradecimiento al equipo de desarrollo de la librería [EPH en R](https://holatam.github.io/eph/authors.html). Todo el amor para elles ❤️ y a [Rami Argañaraz](https://www.linkedin.com/in/ramiro-arga%C3%B1araz-57764a16b/) por armarnos el loguito 😻
 
 ---
-⌨️ con ❤️
 
+⌨️ con ❤️
