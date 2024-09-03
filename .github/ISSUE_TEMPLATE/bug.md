@@ -1,5 +1,5 @@
 ---
-name: Reporte de error
+name: Reportar un error
 about: ¿Encontraste un bug? ¡Comunicalo por aquí! 🐛
 ---
 
