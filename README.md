@@ -98,12 +98,6 @@ desempleo_etiquetado = pyeph.etiquetar(desempleo) # Etiquetado de las variables
 
 ---
 
-### Tenga en cuenta
-
-Esta librería se encuentra en estado permanente de desarrollo.
-
-> Cualquier colaboración es bienvenida
-
 ## Agradecimientos
 
 Dejamos aquí un especial agradecimiento al equipo de desarrollo de la librería [EPH en R](https://holatam.github.io/eph/authors.html). Todo el amor para elles ❤️ y a [Rami Argañaraz](https://www.linkedin.com/in/ramiro-arga%C3%B1araz-57764a16b/) por armarnos el loguito 😻
