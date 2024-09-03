@@ -7,7 +7,7 @@ La seguridad es una prioridad para nosotros. Este documento describe cómo podé
 Si encontrás una vulnerabilidad de seguridad en este proyecto, te pedimos que la reportes de la siguiente manera:
 
 - **No abras un Issue público:** Para proteger a los usuarios, no publiques vulnerabilidades en los Issues públicos.
-- **Envíanos un correo electrónico:** Reporta las vulnerabilidades enviando un correo a [it@democraciaenred.org](mailto:it@democraciaenred.org). Incluye la mayor cantidad de detalles posibles:
+- **Envíanos un correo electrónico:** Reporta las vulnerabilidades enviando un correo a [hola@reflej.ar](mailto:hola@reflej.ar). Incluye la mayor cantidad de detalles posibles:
   - Descripción de la vulnerabilidad.
   - Pasos para reproducir el problema.
   - Impacto potencial.
@@ -25,4 +25,4 @@ Una vez que recibimos un reporte de vulnerabilidad, seguiremos este proceso:
 
 ## Contacto
 
-Si tenés alguna pregunta o necesitás más información sobre nuestras políticas de seguridad, no dudes en contactarnos en [it@democraciaenred.org](mailto:it@democraciaenred.org)
+Si tenés alguna pregunta o necesitás más información sobre nuestras políticas de seguridad, no dudes en contactarnos en [hola@reflej.ar](mailto:hola@reflej.ar)
