@@ -1,3 +1,8 @@
+---
+name: Reportar una vulnerabilidad de seguridad
+about: Revisá nuestra política de seguridad para obtener más detalles.
+---
+
 # 🛡️ Políticas de Seguridad
 
 La seguridad es una prioridad para nosotros. Este documento describe cómo podés reportar vulnerabilidades de seguridad y cómo manejaremos estos reportes.
