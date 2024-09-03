@@ -17,7 +17,7 @@ Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `a
 
 > #### 🤝 Contribuciones
 >
-> ¡Las contribuciones son bienvenidas! Si estás interesado en mejorar la librería o agregar nuevas funcionalidades o cálculos, por favor revisa nuestra [guía de contribución](.github/CONTRIBUTING.md) para obtener más información.
+> **¡Las contribuciones son bienvenidas!** Si estás interesado en mejorar la librería o agregar nuevas funcionalidades o cálculos, por favor revisa nuestra [guía de contribución](.github/CONTRIBUTING.md) para obtener más información.
 
 ## Cómo citar la librería
 
