@@ -15,7 +15,7 @@ Es una librería que hace principal hincapié en la transparencia metodológica 
 
 Permite la descarga de archivos de `EPH's` y otros como la `canasta basica` y `adulto equivalente` , como asi también algunos calculos rápidos relacionados con las mismas
 
-> #### 🤝 Contribuciones
+> #### 👷‍♀️ Cómo colaborar
 >
 > **¡Las contribuciones son bienvenidas!** Si estás interesado en mejorar la librería o agregar nuevas funcionalidades o cálculos, por favor revisa nuestra [guía de contribución](.github/CONTRIBUTING.md) para obtener más información.
 
