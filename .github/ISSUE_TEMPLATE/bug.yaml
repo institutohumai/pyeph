@@ -1,0 +1,18 @@
+name: Reportar un error
+description: ¿Encontraste un bug? ¡Comunicalo por aquí! 🐛
+title: "[BUG]: "
+labels: ["bug"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por ayudarnos a mejorar PyEPH.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: ¿Qué está sucediendo?
+      description: Proporcioná una descripción corta y clara indicando la ubicación del problema y el comportamiento observado.
+      placeholder: "Ejemplo: En la sección X, la funcionalidad Y no funciona como se espera."
+    validations:
+      required: true

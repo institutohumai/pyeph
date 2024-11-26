@@ -1,0 +1,17 @@
+name: Cambio
+description: Actualizar una funcionalidad existente o la documentación.
+title: "[CAMBIO]: "
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por ayudarnos a mejorar PyEPH.
+  - type: textarea
+    id: what-change
+    attributes:
+      label: ¿Qué querés modificar?
+      description: Proporcioná una descripción corta y clara indicando la función que deseas modificar y el cambio.
+      placeholder: "Ejemplo: En la sección X me gustaría modificar tal cosa."
+    validations:
+      required: true
