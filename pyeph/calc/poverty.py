@@ -101,7 +101,7 @@ class Poverty(Calculator):
         eph.loc[:, (self.VAR_PERIODO)] = period
         # Se obtiene los valores de las canastas para el periodo especificado
         basket = basket[self.basket[self.VAR_PERIODO] == period]
-        basket = basket.groupby(by=[self.VAR_PERIODO, self.VAR_BASKET_COD]).mean().reset_index()
+        basket = basket.groupby(by=[self.VAR_PERIODO, self.VAR_BASKET_COD]).mean([self.VAR_CBT, self.VAR_CBA]).reset_index()
         basket = basket.drop(columns={self.VAR_PERIODO})
         # Se mergea con los valores de la CBT y CBA para es período
         eph = eph.merge(basket, how="left", left_on=self.VAR_EPH_REGION, right_on=self.VAR_BASKET_COD)
