@@ -1,6 +1,6 @@
 from pyeph.get.basket import Basket
 
-from .types import EPHType
+from ._types import EPHType
 
 class Calculator:
 	"""

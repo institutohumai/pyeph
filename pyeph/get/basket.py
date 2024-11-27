@@ -3,7 +3,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 import pandas as pd
 
-from ..getter import Getter
+from ._base_getter import Getter
 
 class Basket(Getter):
 	"""
@@ -15,6 +15,15 @@ class Basket(Getter):
 
 	@staticmethod
 	def prepare_basket(df):
+		REGION_MAP = {
+			"cuyo": 42,
+			"gran_buenos_aires":1,
+			"noreste":41,
+			"noroeste":40,
+			"pampeana":43,
+			"patagonia":44
+		}	
+		
 		df['indice_tiempo'] =  pd.to_datetime(df['indice_tiempo'])
 		df['year'] = df["indice_tiempo"].dt.strftime("%Y")
 		df['trim'] = ((df['indice_tiempo'].dt.month-1)//3+1).astype(str)
@@ -27,15 +36,8 @@ class Basket(Getter):
 		_index = [c for c in df.columns if c not in ['valor', 'tipo_canasta']]
 		df = pd.pivot_table(df, values='valor', columns='tipo_canasta', index = _index ,aggfunc='sum' )
 		df = df.reset_index()
-		region_map = {
-			"cuyo": 42,
-			"gran_buenos_aires":1,
-			"noreste":41,
-			"noroeste":40,
-			"pampeana":43,
-			"patagonia":44
-		}
-		df['codigo'] = df['region'].map(region_map)
+
+		df['codigo'] = df['region'].map(REGION_MAP)
 		return df		
 
 	def make_filenames(self, year_month):

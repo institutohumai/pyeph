@@ -8,8 +8,8 @@ from pyeph.tools.decorators import (
 from pyeph.get.basket import Basket
 from pyeph.get.equivalent_adult import EquivalentAdult
 
-from ..types import BasketType
-from ..calculator import Calculator
+from ._types import BasketType
+from ._base_calculator import Calculator
 
 
 class Poverty(Calculator):

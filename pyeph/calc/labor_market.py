@@ -6,7 +6,7 @@ from pyeph.tools.decorators import (
 	validate_div_by
 )
 
-from ..calculator import Calculator
+from ._base_calculator import Calculator
 
 
 class LaborMarket(Calculator):

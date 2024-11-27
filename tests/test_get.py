@@ -3,7 +3,7 @@ import pandas as pd
 
 from datetime import date
 
-from pyeph.get.api import get, obtener
+from pyeph.get import get, obtener
 
 parametters = pytest.mark.parametrize(
     "year,period", [

@@ -1,4 +1,4 @@
-from pyeph.calc.calculator import Calculator
+from ._base_calculator import Calculator
 
 
 class Template(Calculator):
@@ -6,7 +6,7 @@ class Template(Calculator):
         Template para agregar nuevos calculos.
 
 		Notas:
-			Para crear un nuevo calculo es necesario copiar la carpeta "template", pegar y renombrar
+			Para crear un nuevo calculo es necesario copiar el archivo "_template", pegar y renombrar
 			Se deben agregar constantes como atributos de las clases de cada calculo
 			Estos atributos serán las columnas necesarias para el calculo que se pretende agregar
 			con "VAR_EPH_nombrecolumna" (ver VAR_EPH_EJEMPLO mas abajo)

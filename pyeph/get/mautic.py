@@ -1,5 +1,9 @@
 from datetime import date
 
+from pyeph.tools.decorators import translate_params
+
+from ._base_getter import Getter
+
 class BaseType:
 
 	VALUES = ['individual','hogar']
@@ -43,3 +47,50 @@ class Period:
 			raise ValueError("Por favor ingresa un numero de trimeste valido: " + ",".join(map(str, self.VALUES)))
 		self.value = value
 
+
+
+class Mautic(Getter):
+	"""
+	Módulo de Acceso y Uso de Tecnologías de la Información y la Comunicación (Encuesta Permanente de Hogares)
+
+    Parametros
+    ----------
+        year : str
+            año de la eph
+        period : list
+            periodo que se desea consultar
+	"""
+
+	PREFIX_FOLDER = "mautic"
+
+	year = Year()
+	period = Period()
+	base_type = BaseType()
+
+	@translate_params({
+		'ano': 'year',
+		'periodo': 'period',
+		'tipo_base': 'base_type'		
+	})
+	def __init__(self,
+			year: int,
+			period: int = 4,
+			base_type: str = "individual"
+		):
+		self.year = year
+		self.period = period
+		self.base_type = base_type
+		super(Mautic, self).__init__()
+
+	@property
+	def filename(self): return "mautic_{}_{}T{}.zip".format(
+			self.base_type,
+			self.year,
+			self.period
+			)
+
+	@property
+	def folder(self): return "{}_{}".format(
+			self.PREFIX_FOLDER, 
+			self.base_type
+			)

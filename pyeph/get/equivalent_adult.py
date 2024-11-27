@@ -1,4 +1,4 @@
-from ..getter import Getter
+from ._base_getter import Getter
 
 class EquivalentAdult(Getter):
 	"""

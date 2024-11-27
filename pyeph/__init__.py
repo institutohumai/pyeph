@@ -1,5 +1,5 @@
-from pyeph.get.api import *
+from pyeph.get import *
 
-from pyeph.calc.api import *
+from pyeph.calc import *
 
-from pyeph.tools.api import *
+from pyeph.tools import *

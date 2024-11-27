@@ -2,7 +2,7 @@ import pytest
 
 from pyeph import errors
 from pyeph import ads
-from pyeph.get.api import get
+from pyeph.get import get
 
 
 def test_period_freq():
