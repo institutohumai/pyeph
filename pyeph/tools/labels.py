@@ -10,7 +10,7 @@ LABELS_FILENAME = 'EPH_tot_urbano_estructura_bases.xlsx'
 def get_df():
     pathfile = os.path.join(config.ROOT_DIR, config.FILES_DIR, LABELS_FILENAME)
     df = pd.read_excel(pathfile, sheet_name = 'BASE PERSONAS', skiprows=6, engine='openpyxl').dropna(axis=0, how='all')
-    df = df.fillna(method='ffill')
+    df = df.ffill()
     df['CAMPO'] = df['CAMPO'].str.strip()
     #df['DESCRIPCIÓN'] = df['DESCRIPCIÓN'].str.replace(r'([0-9]\.)', '=', regex=True)
     df[['CODIGO', 'DESCRIPCIÓN']] = df['DESCRIPCIÓN'].str.split("=",expand=True,)
