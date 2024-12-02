@@ -1,12 +1,5 @@
 import pandas as pd
 from statistics import mean
-
-from pyeph.tools.decorators import (
-    translate_params,
-    validate_group_by,
-    validate_div_by
-)
-
 from ._base_calculator import Calculator
 
 class Dwelling(Calculator):
@@ -93,7 +86,7 @@ class Dwelling(Calculator):
             if len(filtered_eph) == 0:
                 raise ValueError(f"No hay datos para el aglomerado {aglomerado}")
             
-            eph_completo = self.eph_individual.merge(self.eph_hogar, on=["CODUSU", "NRO_HOGAR"])
+            eph_completo = self.eph_individual.merge(filtered_eph, on=["CODUSU", "NRO_HOGAR"])
             eph_completo.rename(columns={"PONDERA_x":"PONDERA_INDIVIDUAL", "PONDIH_y":"PONDERA_HOGAR"}, inplace=True)
             #Propietarios
             prop = self._filtrar_propietarios(eph_completo)
