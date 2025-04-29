@@ -10,6 +10,16 @@
 [![Documentation Status](https://readthedocs.org/projects/pyeph/badge/?version=latest)](https://pyeph.readthedocs.io/es/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/461306367.svg)](https://zenodo.org/badge/latestdoi/461306367)
 
+<details>
+<summary><b>Show in English</b></summary>
+
+The Pyeph library aims to facilitate Python-based processing of the Permanent Household Survey (EPH) periodically published by INDEC. It is designed as a centralized space that consolidates calculations related to these surveys for subsequent use in research, articles, publications, etc.
+
+This library emphasizes methodological transparency through open-source licensing and promotes collaboration among communities of data scientists, social scientists, researchers, developers, journalists, and other curious minds.
+
+It enables downloading EPH files as well as other datasets like the basic food basket and adult equivalent measurements, along with providing quick calculations related to them.
+</details>
+
 La librería Pyeph tiene como objetivo facilitar el procesamiento en Python de las [Encuesta Permanente de Hogares (eph)](https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos) publicadas por INDEC de forma periódica. Está pensada como un espacio donde se nuclean y centralizan los cálculos vinculados a las mismas para posteriormente ser utilizadas en investigaciones, artículos, publicaciones, etc.
 Es una librería que hace principal hincapié en la transparencia metodológica utilizando licencias de código abierto y que promueve la colaboración de las comunidades de cientístas de datos, sociales, investigadorxs, desarrolladorxs, periodistas y demás curiosxs.
 
