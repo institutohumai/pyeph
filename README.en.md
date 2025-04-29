@@ -1,4 +1,4 @@
-# PyEPH - Librería para el procesamiento de la Encuesta Permanente de Hogares en Python
+# PyEPH - Python library for processing Argentina's Permanent Household Survey (EPH) data
 
 <a><img src='docs/_static/logo.png' align="right" height="250" /></a>
 
