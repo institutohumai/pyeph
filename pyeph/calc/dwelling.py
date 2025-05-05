@@ -113,3 +113,5 @@ class Dwelling(Calculator):
             return {"propietarios": float(promedio_variable_prop.round(2)), "inquilinos": float(promedio_variable_inqui.round(2))}
 
 
+
+Vivienda = Dwelling
