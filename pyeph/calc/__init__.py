@@ -1,3 +1,7 @@
+from .dwelling import (
+    Dwelling, 
+    Vivienda
+)
 from .poverty import (
     Poverty, 
     Pobreza
