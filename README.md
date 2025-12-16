@@ -16,7 +16,7 @@
 | pyeph/config.py                  |        3 |        0 |    100% |           |
 | pyeph/errors.py                  |        7 |        0 |    100% |           |
 | pyeph/get/\_\_init\_\_.py        |       14 |        0 |    100% |           |
-| pyeph/get/\_base\_getter.py      |       72 |       10 |     86% |53, 73-75, 106-111 |
+| pyeph/get/\_base\_getter.py      |       80 |       10 |     88% |53, 94-96, 127-132 |
 | pyeph/get/basket.py              |       61 |        4 |     93% |     81-84 |
 | pyeph/get/equivalent\_adult.py   |        4 |        0 |    100% |           |
 | pyeph/get/mautic.py              |       43 |        1 |     98% |        16 |
@@ -25,7 +25,7 @@
 | pyeph/tools/decorators.py        |       24 |       10 |     58% |6, 13-16, 21-28 |
 | pyeph/tools/labels.py            |       39 |       29 |     26% |11-17, 20-22, 26-53 |
 | pyeph/tools/merge.py             |       21 |       16 |     24% |      8-35 |
-| **TOTAL**                        |  **684** |  **222** | **68%** |           |
+| **TOTAL**                        |  **692** |  **222** | **68%** |           |
 
 
 ## Setup coverage badge
