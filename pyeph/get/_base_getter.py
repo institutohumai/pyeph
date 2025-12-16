@@ -1,10 +1,15 @@
 import os
 import sys
 import zipfile
+import logging
+import urllib.error
 import wget
 import pandas as pd
 
-from pyeph.errors import NonExistentDBError
+from pyeph.errors import NonExistentDBError, DownloadError, NetworkError
+
+# Configurar logger
+logger = logging.getLogger(__name__)
 
 MODULE_PATH = os.getcwd()
 
@@ -49,14 +54,26 @@ class Getter:
 
     def from_github(self):
         pathfile = os.path.join(self.BASE_GITHUB_URL, self.folder, self.filename).replace('\\', '/')
-        wget.download(pathfile, self.download_destination)
+        try:
+            wget.download(pathfile, self.download_destination)
+        except urllib.error.URLError as e:
+            logger.error(f"Error de red al descargar {self.filename}: {e}")
+            raise NetworkError(f"No se pudo conectar al servidor: {e}") from e
+        except Exception as e:
+            logger.error(f"Error inesperado al descargar {self.filename}: {e}")
+            raise DownloadError(f"Error al descargar {self.filename}: {e}") from e
 
     def download(self):
         try:
             self.from_github()
             sys.stdout.write("\n")
-        except:
-            raise NonExistentDBError()
+            logger.info(f"Descarga exitosa: {self.filename}")
+        except (NetworkError, DownloadError):
+            # Re-raise errors específicos sin modificar
+            raise
+        except Exception as e:
+            logger.error(f"Error desconocido durante la descarga: {e}")
+            raise NonExistentDBError(f"La base solicitada no está disponible: {self.filename}") from e
 
     def check_if_exists(self):
         # Se fija si existe en el directorio. Caso contrario lo descarga
@@ -82,7 +99,15 @@ class Getter:
         """
 			Retorna el DataFrame
 		"""
-        df = pd.read_csv(self.get_file(), low_memory=False)
-        if inform_user:
-            sys.stdout.write("Obtenido con exito: {} \n".format(self.filename))
-        return df
+        try:
+            df = pd.read_csv(self.get_file(), low_memory=False)
+            if inform_user:
+                logger.info(f"Obtenido con éxito: {self.filename}")
+                sys.stdout.write("Obtenido con exito: {} \n".format(self.filename))
+            return df
+        except pd.errors.ParserError as e:
+            logger.error(f"Error al parsear CSV {self.filename}: {e}")
+            raise ValueError(f"Archivo CSV corrupto o formato inválido: {self.filename}") from e
+        except Exception as e:
+            logger.error(f"Error al leer DataFrame desde {self.filename}: {e}")
+            raise

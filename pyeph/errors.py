@@ -11,3 +11,15 @@ class NonExistentDBError(BaseError):
 	"""
 		La base solicitada no fue provista por INDEC.
 	"""
+
+
+class DownloadError(BaseError):
+	"""
+		Error al descargar el archivo solicitado.
+	"""
+
+
+class NetworkError(BaseError):
+	"""
+		Error de conexión de red.
+	"""
