@@ -2,8 +2,8 @@ import os
 import sys
 import zipfile
 import logging
-import urllib.error
-import wget
+import requests
+from tqdm import tqdm
 import pandas as pd
 
 from pyeph.errors import NonExistentDBError, DownloadError, NetworkError
@@ -55,8 +55,29 @@ class Getter:
     def from_github(self):
         pathfile = os.path.join(self.BASE_GITHUB_URL, self.folder, self.filename).replace('\\', '/')
         try:
-            wget.download(pathfile, self.download_destination)
-        except urllib.error.URLError as e:
+            # Hacer request con streaming
+            response = requests.get(pathfile, stream=True, timeout=30)
+            response.raise_for_status()
+            
+            # Obtener tamaño total del archivo
+            total_size = int(response.headers.get('content-length', 0))
+            
+            # Configurar barra de progreso
+            with tqdm(
+                total=total_size,
+                unit='B',
+                unit_scale=True,
+                unit_divisor=1024,
+                desc=f"Descargando {self.filename}",
+                ncols=80
+            ) as pbar:
+                with open(self.download_destination, 'wb') as f:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
+                            pbar.update(len(chunk))
+                            
+        except requests.exceptions.RequestException as e:
             logger.error(f"Error de red al descargar {self.filename}: {e}")
             raise NetworkError(f"No se pudo conectar al servidor: {e}") from e
         except Exception as e:
@@ -88,7 +109,7 @@ class Getter:
         return zip_file
 
     def get_file(self):
-        # Aquí hay que agregar un progress bar
+        """Obtiene el archivo CSV desde el ZIP descargado"""
         zip_file = self.check_if_exists()
         zip_file = zipfile.ZipFile(zip_file, 'r')
         csv_file = zip_file.open(self.filename.replace('.zip', '.csv'), 'r')
