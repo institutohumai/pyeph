@@ -3,8 +3,8 @@ Tests para verificar el manejo mejorado de errores
 """
 import pytest
 import logging
-from unittest.mock import patch, MagicMock
-import urllib.error
+from unittest.mock import patch, MagicMock, mock_open
+import requests
 
 from pyeph.errors import NonExistentDBError, DownloadError, NetworkError
 from pyeph.get._base_getter import Getter
@@ -35,13 +35,16 @@ class TestGetterErrorHandling:
     """Tests para el manejo de errores en Getter"""
     
     def test_from_github_network_error(self):
-        """Verifica que URLError se convierte en NetworkError"""
+        """Verifica que RequestException se convierte en NetworkError"""
         getter = Getter()
         getter.BASE_GITHUB_URL = "https://invalid.url"
         getter.folder = "test"
         getter.filename = "test.zip"
         
-        with patch('wget.download', side_effect=urllib.error.URLError("Connection refused")):
+        mock_response = MagicMock()
+        mock_response.raise_for_status.side_effect = requests.exceptions.RequestException("Connection refused")
+        
+        with patch('requests.get', return_value=mock_response):
             with pytest.raises(NetworkError) as exc_info:
                 getter.from_github()
             assert "No se pudo conectar" in str(exc_info.value)
@@ -53,7 +56,7 @@ class TestGetterErrorHandling:
         getter.folder = "test"
         getter.filename = "test.zip"
         
-        with patch('wget.download', side_effect=Exception("Generic error")):
+        with patch('requests.get', side_effect=Exception("Generic error")):
             with pytest.raises(DownloadError) as exc_info:
                 getter.from_github()
             assert "Error al descargar" in str(exc_info.value)
