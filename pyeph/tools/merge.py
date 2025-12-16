@@ -1,5 +1,7 @@
 import pandas as pd
-import sys
+import logging
+
+logger = logging.getLogger(__name__)
 
 def merge(eph, modulo, report=True):
 
@@ -25,7 +27,7 @@ def merge(eph, modulo, report=True):
 
     if len(_periodos_faltantes)!=0:
         df = eph
-        sys.stdout.write("No se encontró coincidencia para los siguientes periodos: {} \n".format(_periodos_faltantes))
+        logger.warning(f"No se encontró coincidencia para los siguientes periodos: {_periodos_faltantes}")
 
     else:
         df = pd.merge(eph, modulo, how= 'left', on=_relevant)

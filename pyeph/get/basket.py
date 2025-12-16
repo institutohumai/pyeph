@@ -89,9 +89,8 @@ class Basket(Getter):
 			raise DownloadError(error_msg)
 		
 		if inform_user:
-			message = "CBT y CBA mas actualizada que se obtuvo: {} \n".format(year_month.strftime('%Y-%m'))
-			sys.stdout.write(message)
-			logger.info(message.strip())
+			message = "CBT y CBA mas actualizada que se obtuvo: {}".format(year_month.strftime('%Y-%m'))
+			logger.info(message)
 			
 		df_final = self.prepare_basket(df_inicial)
 		return df_final

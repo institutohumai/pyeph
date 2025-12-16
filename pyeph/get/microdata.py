@@ -1,7 +1,10 @@
 import sys
+import logging
 from datetime import date
 
 import pandas as pd
+
+logger = logging.getLogger(__name__)
 
 from pyeph.tools.decorators import translate_params
 from pyeph.tools.labels import vars_labels
@@ -96,7 +99,7 @@ class MicroDataValidator:
 			raise NonExistentDBError(INDEC_STATS_EMERGENCY)
 
 		if self.year >= 2007 and self.year <= 2015:
-			sys.stdout.write(INDEC_2007_2015)
+			logger.warning(INDEC_2007_2015)
 			
 	def handle_exceptions_warnings(self):
 		self.valid_period_freq()

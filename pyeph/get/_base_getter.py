@@ -66,7 +66,6 @@ class Getter:
     def download(self):
         try:
             self.from_github()
-            sys.stdout.write("\n")
             logger.info(f"Descarga exitosa: {self.filename}")
         except (NetworkError, DownloadError):
             # Re-raise errors específicos sin modificar
@@ -103,7 +102,6 @@ class Getter:
             df = pd.read_csv(self.get_file(), low_memory=False)
             if inform_user:
                 logger.info(f"Obtenido con éxito: {self.filename}")
-                sys.stdout.write("Obtenido con exito: {} \n".format(self.filename))
             return df
         except pd.errors.ParserError as e:
             logger.error(f"Error al parsear CSV {self.filename}: {e}")
