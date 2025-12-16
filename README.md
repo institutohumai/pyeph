@@ -8,6 +8,7 @@
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/pyeph?)
 [![Downloads](https://static.pepy.tech/personalized-badge/pyeph?period=total&units=none&left_color=grey&right_color=yellowgreen&left_text=downloads)](https://pepy.tech/project/pyeph)
 [![Documentation Status](https://readthedocs.org/projects/pyeph/badge/?version=latest)](https://pyeph.readthedocs.io/es/latest/?badge=latest)
+[![Tests](https://github.com/institutohumai/pyeph/actions/workflows/test.yml/badge.svg)](https://github.com/institutohumai/pyeph/actions/workflows/test.yml)
 [![DOI](https://zenodo.org/badge/461306367.svg)](https://zenodo.org/badge/latestdoi/461306367)
 
 [Show this content in English](./README.en.md)
