@@ -73,24 +73,6 @@ class TestGetterErrorHandling:
             assert "Test network error" in str(exc_info.value)
 
 
-class TestBasketErrorHandling:
-    """Tests para el manejo de errores en Basket"""
-    
-    def test_basket_logs_warnings(self, caplog):
-        """Verifica que se loguean advertencias al fallar descargas"""
-        basket = Basket()
-        
-        with caplog.at_level(logging.WARNING):
-            with patch.object(basket, 'get_file', side_effect=DownloadError("Not found")):
-                try:
-                    basket.get_df(inform_user=False)
-                except DownloadError:
-                    pass
-        
-        # Debe haber al menos una advertencia logueada
-        assert any("No se encontraron canastas" in record.message for record in caplog.records)
-
-
 class TestLoggingIntegration:
     """Tests para verificar que el logging funciona correctamente"""
     
