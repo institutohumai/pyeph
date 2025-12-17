@@ -1,8 +1,8 @@
-import sys
 import logging
-from datetime import date
-from dateutil.relativedelta import relativedelta
+from datetime import datetime
 import pandas as pd
+import re
+import requests
 
 from ._base_getter import Getter
 from pyeph.errors import DownloadError, NetworkError
@@ -47,8 +47,41 @@ class Basket(Getter):
 	def make_filenames(self, year_month):
 		year_month = year_month.strftime('%Y-%m')
 		return ['cbt_{}.zip'.format(year_month), 'cba_{}.zip'.format(year_month)]
+	
+	def get_latest_basket_date(self):
+		"""
+			Consulta el HTML de la página para obtener la fecha más reciente de canastas disponibles
+			
+			Returns
+			-------
+			datetime
+				Fecha de la canasta más reciente disponible
+		"""
+		try:
+			response = requests.get(self.BASE_GITHUB_URL, timeout=10)
+			response.raise_for_status()
+			
+			# Buscar todos los archivos de canastas en el HTML
+			pattern = r'canastas/cb[at]_(\d{4}-\d{2})\.zip'
+			matches = re.findall(pattern, response.text)
+			
+			if not matches:
+				raise DownloadError("No se encontraron archivos de canastas en la página")
+			
+			# Convertir a fechas y encontrar la más reciente
+			dates = [datetime.strptime(match, '%Y-%m') for match in matches]
+			latest_date = max(dates)
+			logger.info(f"Última canasta disponible encontrada: {latest_date.strftime('%Y-%m')}")
+			return latest_date
+			
+		except requests.RequestException as e:
+			logger.error(f"Error al consultar la página: {e}")
+			raise NetworkError(f"No se pudo consultar la página de canastas: {e}")
+		except ValueError as e:
+			logger.error(f"Error al parsear fechas de canastas: {e}")
+			raise DownloadError(f"Error al procesar fechas de canastas: {e}")
 
-	def get_df(self, inform_user=True, max_retries=24):
+	def get_df(self, inform_user=True):
 		"""
 			Retorna el DataFrame
 			
@@ -56,41 +89,21 @@ class Basket(Getter):
 			----------
 			inform_user : bool, optional
 				Mostrar mensaje informativo al usuario (default: True)
-			max_retries : int, optional
-				Número máximo de meses hacia atrás para buscar canastas (default: 24)
 		"""
 		df_inicial = pd.DataFrame()
-		year_month = date.today()
-		query = False
-		attempts = 0
 		
-		while not query and attempts < max_retries:
-			try:
-				logger.debug(f"Intentando descargar canastas para: {year_month.strftime('%Y-%m')}")
-				for f in self.make_filenames(year_month):
-					self.filename = f
-					df_f = pd.read_csv(self.get_file(), low_memory=False)
-					df_f['tipo_canasta'] = f[:3].upper()
-					df_inicial = pd.concat([df_inicial, df_f])
-				query = True
-				logger.info(f"Canastas obtenidas exitosamente para: {year_month.strftime('%Y-%m')}")
-			except (DownloadError, NetworkError) as e:
-				logger.warning(f"No se encontraron canastas para {year_month.strftime('%Y-%m')}: {e}")
-				year_month = year_month - relativedelta(months=1)
-				attempts += 1
-			except Exception as e:
-				logger.error(f"Error inesperado al obtener canastas para {year_month.strftime('%Y-%m')}: {e}")
-				year_month = year_month - relativedelta(months=1)
-				attempts += 1
-		
-		if not query:
-			error_msg = f"No se pudieron obtener canastas después de {max_retries} intentos"
-			logger.error(error_msg)
-			raise DownloadError(error_msg)
+		# Intentar obtener la fecha más reciente desde el HTML
+		year_month = self.get_latest_basket_date()
+		for f in self.make_filenames(year_month):
+			self.filename = f
+			df_f = pd.read_csv(self.get_file(), low_memory=False)
+			df_f['tipo_canasta'] = f[:3].upper()
+			df_inicial = pd.concat([df_inicial, df_f])
+	
 		
 		if inform_user:
 			message = "CBT y CBA mas actualizada que se obtuvo: {}".format(year_month.strftime('%Y-%m'))
 			logger.info(message)
-			
+		
 		df_final = self.prepare_basket(df_inicial)
 		return df_final

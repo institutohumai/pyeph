@@ -76,15 +76,6 @@ class TestGetterErrorHandling:
 class TestBasketErrorHandling:
     """Tests para el manejo de errores en Basket"""
     
-    def test_basket_max_retries(self):
-        """Verifica que get_df respeta max_retries"""
-        basket = Basket()
-        
-        with patch.object(basket, 'get_file', side_effect=DownloadError("Not found")):
-            with pytest.raises(DownloadError) as exc_info:
-                basket.get_df(inform_user=False, max_retries=3)
-            assert "3 intentos" in str(exc_info.value)
-    
     def test_basket_logs_warnings(self, caplog):
         """Verifica que se loguean advertencias al fallar descargas"""
         basket = Basket()
@@ -92,7 +83,7 @@ class TestBasketErrorHandling:
         with caplog.at_level(logging.WARNING):
             with patch.object(basket, 'get_file', side_effect=DownloadError("Not found")):
                 try:
-                    basket.get_df(inform_user=False, max_retries=2)
+                    basket.get_df(inform_user=False)
                 except DownloadError:
                     pass
         
