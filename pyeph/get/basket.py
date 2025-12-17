@@ -71,7 +71,6 @@ class Basket(Getter):
 			# Convertir a fechas y encontrar la más reciente
 			dates = [datetime.strptime(match, '%Y-%m') for match in matches]
 			latest_date = max(dates)
-			logger.info(f"Última canasta disponible encontrada: {latest_date.strftime('%Y-%m')}")
 			return latest_date
 			
 		except requests.RequestException as e:
@@ -102,7 +101,7 @@ class Basket(Getter):
 	
 		
 		if inform_user:
-			message = "CBT y CBA mas actualizada que se obtuvo: {}".format(year_month.strftime('%Y-%m'))
+			message = "Utilizando recurso: canastas_{}".format(year_month.strftime('%Y-%m'))
 			logger.info(message)
 		
 		df_final = self.prepare_basket(df_inicial)

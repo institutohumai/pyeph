@@ -122,7 +122,7 @@ class Getter:
         try:
             df = pd.read_csv(self.get_file(), low_memory=False)
             if inform_user:
-                logger.info(f"Obtenido con éxito: {self.filename}")
+                logger.info(f"Utilizando recurso: {os.path.splitext(self.filename)[0]}")
             return df
         except pd.errors.ParserError as e:
             logger.error(f"Error al parsear CSV {self.filename}: {e}")
