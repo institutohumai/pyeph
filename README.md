@@ -4,7 +4,7 @@
 
 | Name                             |    Stmts |     Miss |   Cover |   Missing |
 |--------------------------------- | -------: | -------: | ------: | --------: |
-| pyeph/\_\_init\_\_.py            |        3 |        0 |    100% |           |
+| pyeph/\_\_init\_\_.py            |        5 |        0 |    100% |           |
 | pyeph/ads.py                     |        4 |        0 |    100% |           |
 | pyeph/calc/\_\_init\_\_.py       |        4 |        0 |    100% |           |
 | pyeph/calc/\_base\_calculator.py |       46 |       26 |     43% |18-26, 30-32, 42, 46-57, 61-63 |
@@ -17,7 +17,7 @@
 | pyeph/errors.py                  |        7 |        0 |    100% |           |
 | pyeph/get/\_\_init\_\_.py        |       14 |        0 |    100% |           |
 | pyeph/get/\_base\_getter.py      |       80 |       10 |     88% |53, 94-96, 127-132 |
-| pyeph/get/basket.py              |       61 |        4 |     93% |     81-84 |
+| pyeph/get/basket.py              |       60 |        7 |     88% | 69, 77-82 |
 | pyeph/get/equivalent\_adult.py   |        4 |        0 |    100% |           |
 | pyeph/get/mautic.py              |       43 |        1 |     98% |        16 |
 | pyeph/get/microdata.py           |       81 |        6 |     93% |32, 47, 62, 72, 96, 102 |
@@ -25,7 +25,7 @@
 | pyeph/tools/decorators.py        |       24 |       10 |     58% |6, 13-16, 21-28 |
 | pyeph/tools/labels.py            |       39 |       29 |     26% |11-17, 20-22, 26-53 |
 | pyeph/tools/merge.py             |       21 |       16 |     24% |      8-35 |
-| **TOTAL**                        |  **692** |  **222** | **68%** |           |
+| **TOTAL**                        |  **693** |  **225** | **68%** |           |
 
 
 ## Setup coverage badge
