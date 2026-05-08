@@ -1,4 +1,3 @@
-import sys
 import logging
 from datetime import date
 
@@ -9,7 +8,7 @@ logger = logging.getLogger(__name__)
 from pyeph.tools.decorators import translate_params
 from pyeph.tools.labels import vars_labels
 
-from ._base_getter import Getter
+from ._base_getter import Getter, URL_INDEC_EPH_BASE, force_itf_column
 
 from pyeph.errors import *
 from pyeph.ads import (
@@ -153,6 +152,43 @@ class MicroData(Getter, MicroDataValidator):
 			self.freq[0].upper(),
 			self.period
 			)
+
+	def _download_from_indec(self):
+		url = (
+			f"{URL_INDEC_EPH_BASE}/"
+			f"EPH_usu_{self.period}_Trim_{self.year}_txt.zip"
+		)
+		zip_bytes = self._download_indec_zip(url)
+		needle = "hogar" if self.base_type == "hogar" else "individual"
+
+		def txt_basename_predicate(name: str) -> bool:
+			low = name.lower()
+			if not low.endswith(".txt"):
+				return False
+			if needle == "hogar":
+				return "hogar" in low
+			return "individual" in low or "personas" in low
+
+		self._repackage_txt_to_csv_zip(
+			zip_bytes,
+			txt_basename_predicate=txt_basename_predicate,
+			normalizers=[force_itf_column],
+			destination=self.download_destination,
+		)
+
+	def download(self):
+		if self.freq == "trimestre" and self.year >= 2016:
+			try:
+				self._download_from_indec()
+				logger.info(f"Descarga exitosa desde INDEC: {self.filename}")
+				return
+			except (NetworkError, DownloadError, NonExistentDBError) as e:
+				logger.warning(
+					"INDEC no respondio para %s; cayendo al mirror estatico (%s)",
+					self.filename,
+					e,
+				)
+		super().download()
 
 	def get_df(self, inform_user=True):
 		pd.DataFrame.help = vars_labels
