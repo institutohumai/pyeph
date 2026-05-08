@@ -59,6 +59,7 @@ jobs:
         poetry run pytest tests/ --cov=pyeph --cov-report=xml --cov-report=term-missing --cov-report=html -v
     
     - name: Coverage comment
+      if: matrix.python-version == '3.12'
       uses: py-cov-action/python-coverage-comment-action@v3
       with:
         GITHUB_TOKEN: ${{ github.token }}
