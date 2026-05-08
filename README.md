@@ -14,18 +14,19 @@
 | pyeph/calc/labor\_market.py      |       68 |       37 |     46% |27, 31-33, 36-42, 45-50, 53-57, 64-71, 77-82, 88-92 |
 | pyeph/calc/poverty.py            |      103 |       60 |     42% |53-69, 73-79, 83-95, 99-117, 123-133, 138-149 |
 | pyeph/config.py                  |        3 |        0 |    100% |           |
+| pyeph/data/\_\_init\_\_.py       |        0 |        0 |    100% |           |
 | pyeph/errors.py                  |        7 |        0 |    100% |           |
 | pyeph/get/\_\_init\_\_.py        |       14 |        0 |    100% |           |
-| pyeph/get/\_base\_getter.py      |       80 |       10 |     88% |53, 94-96, 127-132 |
-| pyeph/get/basket.py              |       60 |        7 |     88% | 69, 77-82 |
-| pyeph/get/equivalent\_adult.py   |        4 |        0 |    100% |           |
-| pyeph/get/mautic.py              |       43 |        1 |     98% |        16 |
-| pyeph/get/microdata.py           |       81 |        6 |     93% |32, 47, 62, 72, 96, 102 |
+| pyeph/get/\_base\_getter.py      |      118 |       15 |     87% |24, 69, 110-112, 125-127, 159, 211-216 |
+| pyeph/get/basket.py              |       81 |       32 |     60% |65-66, 78-98, 124-131, 156-163 |
+| pyeph/get/equivalent\_adult.py   |       15 |        0 |    100% |           |
+| pyeph/get/mautic.py              |       64 |        3 |     95% |21, 127-128 |
+| pyeph/get/microdata.py           |      101 |        6 |     94% |31, 46, 61, 71, 95, 167 |
 | pyeph/tools/\_\_init\_\_.py      |        2 |        0 |    100% |           |
 | pyeph/tools/decorators.py        |       24 |       10 |     58% |6, 13-16, 21-28 |
 | pyeph/tools/labels.py            |       39 |       29 |     26% |11-17, 20-22, 26-53 |
 | pyeph/tools/merge.py             |       21 |       16 |     24% |      8-35 |
-| **TOTAL**                        |  **693** |  **225** | **68%** |           |
+| **TOTAL**                        |  **804** |  **257** | **68%** |           |
 
 
 ## Setup coverage badge
