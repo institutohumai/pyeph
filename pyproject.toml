@@ -8,6 +8,9 @@ homepage = "https://github.com/institutohumai/pyeph/"
 readme = "README.md"
 documentation = "https://pyeph.readthedocs.io/es/latest/"
 
+include = [
+    { path = "pyeph/data/adulto_equivalente.csv", format = ["sdist", "wheel"] },
+]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
