@@ -6,6 +6,11 @@ from .labels import (
 )
 
 from .merge import (
-    merge, 
+    merge,
     aparear
+)
+
+from .comparability import (
+    comparability_bridge,
+    puente_comparabilidad
 )

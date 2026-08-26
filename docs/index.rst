@@ -14,3 +14,4 @@
    quickstart
    get
    calc
+   comparability
