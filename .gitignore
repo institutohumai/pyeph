@@ -140,6 +140,8 @@ cython_debug/
 *creds.json
 cython_debug/preprocesamiento.ipynb
 **/data/
+!pyeph/data/
+!pyeph/data/**
 AnalisisDeDatos/4_Visualizacion/preprocesamiento.ipynb
 pyeph/.db/
 prueba.py

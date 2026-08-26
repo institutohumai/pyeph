@@ -1,8 +1,13 @@
+import logging
 from datetime import date
 
 from pyeph.tools.decorators import translate_params
 
-from ._base_getter import Getter
+from pyeph.errors import DownloadError, NetworkError, NonExistentDBError
+
+from ._base_getter import Getter, URL_INDEC_ENTIC_BASE
+
+logger = logging.getLogger(__name__)
 
 class BaseType:
 
@@ -94,3 +99,35 @@ class Mautic(Getter):
 			self.PREFIX_FOLDER, 
 			self.base_type
 			)
+
+	def _download_from_indec(self):
+		yy = str(self.year)[-2:]
+		url = f"{URL_INDEC_ENTIC_BASE}/EPH_Base_Usu_Tic_T{self.period}{yy}.zip"
+		zip_bytes = self._download_indec_zip(url)
+		needle = "hog" if self.base_type == "hogar" else "indiv"
+
+		def txt_basename_predicate(name: str) -> bool:
+			low = name.lower()
+			return low.endswith(".txt") and needle in low
+
+		self._repackage_txt_to_csv_zip(
+			zip_bytes,
+			txt_basename_predicate=txt_basename_predicate,
+			normalizers=[],
+			destination=self.download_destination,
+		)
+
+	def download(self):
+		# 2016-2017: URL distinta en INDEC; el mirror las tiene estandarizadas.
+		if self.period == 4 and 2018 <= self.year <= 2023:
+			try:
+				self._download_from_indec()
+				logger.info(f"Descarga exitosa desde INDEC: {self.filename}")
+				return
+			except (NetworkError, DownloadError, NonExistentDBError) as e:
+				logger.warning(
+					"INDEC no respondio para %s; cayendo al mirror estatico (%s)",
+					self.filename,
+					e,
+				)
+		super().download()
