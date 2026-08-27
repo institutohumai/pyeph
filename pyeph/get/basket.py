@@ -115,6 +115,18 @@ class Basket(Getter):
 			df_inicial = pd.concat([df_inicial, df_f])
 		return df_inicial
 
+	def get_df(self, inform_user=True):
+		"""Obtiene y normaliza las series oficiales de canastas."""
+		try:
+			df = self.prepare_basket(self._download_from_datos_gob())
+		except (requests.exceptions.RequestException, DownloadError) as error:
+			logger.warning("No se pudo obtener la fuente oficial: %s", error)
+			df = self._download_from_github_mirror()
+
+		if inform_user:
+			logger.info("Utilizando recurso: canastas")
+		return df
+
 	def _download_from_github_mirror(self):
 		"""
 			Fallback: descarga las canastas desde el mirror estatico en
@@ -130,9 +142,8 @@ class Basket(Getter):
 			df_inicial = pd.concat([df_inicial, df_f])
 	
 		
-		if inform_user:
-			message = "CBT y CBA mas actualizada que se obtuvo: {}".format(year_month.strftime('%Y-%m'))
-			logger.info(message)
+		message = "CBT y CBA mas actualizada que se obtuvo: {}".format(year_month.strftime('%Y-%m'))
+		logger.info(message)
 		
 		df_final = self.prepare_basket(df_inicial)
 		return df_final
