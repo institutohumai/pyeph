@@ -18,15 +18,16 @@
 | pyeph/errors.py                  |        7 |        0 |    100% |           |
 | pyeph/get/\_\_init\_\_.py        |       14 |        0 |    100% |           |
 | pyeph/get/\_base\_getter.py      |      118 |       15 |     87% |24, 69, 110-112, 125-127, 159, 211-216 |
-| pyeph/get/basket.py              |       81 |       32 |     60% |65-66, 78-98, 124-131, 156-163 |
+| pyeph/get/basket.py              |       80 |       33 |     59% |65-66, 78-98, 122-124, 136-149 |
 | pyeph/get/equivalent\_adult.py   |       15 |        0 |    100% |           |
 | pyeph/get/mautic.py              |       64 |        3 |     95% |21, 127-128 |
 | pyeph/get/microdata.py           |      101 |        6 |     94% |31, 46, 61, 71, 95, 167 |
-| pyeph/tools/\_\_init\_\_.py      |        2 |        0 |    100% |           |
+| pyeph/tools/\_\_init\_\_.py      |        3 |        0 |    100% |           |
+| pyeph/tools/comparability.py     |      121 |        6 |     95% |106, 123, 134, 228, 246, 311 |
 | pyeph/tools/decorators.py        |       24 |       10 |     58% |6, 13-16, 21-28 |
 | pyeph/tools/labels.py            |       39 |       29 |     26% |11-17, 20-22, 26-53 |
 | pyeph/tools/merge.py             |       21 |       16 |     24% |      8-35 |
-| **TOTAL**                        |  **804** |  **257** | **68%** |           |
+| **TOTAL**                        |  **925** |  **264** | **71%** |           |
 
 
 ## Setup coverage badge
