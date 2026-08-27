@@ -36,7 +36,7 @@ individuos = pyeph.comparability_bridge(individuos, base_hogar=hogares)
 
 Las reglas de reconstrucción están documentadas y validadas en:
 
-> Tessmer, G. y Boggiano, B. (2026). *From Breaks to Bridges: Harmonizing the New and Old Permanent Household Survey for Consistent Labor Market Series*. SSRN Working Paper 6597399. <https://papers.ssrn.com/abstract=6597399>
+> Tessmer, G. y Boggiano, B. (2026). *From Breaks to Bridges: An Architecture for Survey Redesigns That Expand Conceptual Scope*. SSRN Working Paper 6597399. <https://papers.ssrn.com/abstract=6597399>
 
 > Observatorio Económico Social UNR. *Manual Metodológico EPH – Observatorio*, Parte A. <https://hdl.handle.net/2133/33253>
 
